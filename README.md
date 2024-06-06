@@ -8,10 +8,25 @@ The conda environment named `24_DP_MedAnalysis` is defined in the file `environm
 ```bash
 conda env create -f config/environment.yml
 ```
-Once the environment have been resolved, to activate it run the following command:
+Once the environment has been resolved, to activate it run the following command:
 ```bash
 conda 24_DP_MedAnalysis
 ```
 
 ## Project structure
-### H1 - Summer School Project
+### H1 - Pre Summer School Project
+
+- Motivate the usefulness of the research presenting the case study;
+- Describe the dataset, including its source, employing suitable plots and tables; 
+- Perform a suitable one-sample tests
+- Perform a suitable two-samples tests
+- Perform an ANOVA or a Chi-square test
+
+### H2 - Post Summer School Project
+
+- Linear, non-linear regression model or supervised Machine Learning algorithm
+- Unsupervised Machine Learning algorithm
+- DOE analysis
+
+## Project description - Differential Privacy and Medical Analysis
+
