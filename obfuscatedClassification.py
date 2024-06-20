@@ -46,11 +46,13 @@ if __name__ == '__main__':
         og_results.append(accuracy)
 
     #DP Classifier
+    private_results_e0 = []
     private_results_e1 = []
     private_results_e2 = []
     private_results_e3 = []
     private_results_e4 = []
-    epsilons = [1, 0.1, 0.01, 0.001]
+    private_results_einf = []
+    epsilons = [10,1, 0.1, 0.01, 0.001, 0.0001]
     for i in range(100):
         for eps in epsilons:
             #Train
@@ -71,35 +73,41 @@ if __name__ == '__main__':
                 private_results_e3.append(accuracy_private)
             elif eps == 0.001:
                 private_results_e4.append(accuracy_private)
+            elif eps == 10:
+                private_results_einf.append(accuracy_private)
+            elif eps == 0.0001:
+                private_results_e0.append(accuracy_private)
 
-    data:List[list] = [private_results_e4, private_results_e3, private_results_e2, private_results_e1]
+    data:List[list] = [private_results_e0,private_results_e4, private_results_e3, private_results_e2, private_results_e1, private_results_einf]
     #save results
     ##the df should have a column with the accuracy performance, a column with the epsilon value
-    df_results:pd.DataFrame = pd.DataFrame(data = {'Accuracy': private_results_e4 + private_results_e3 + private_results_e2 + private_results_e1,
-                                                    'Epsilon': [0.001]*100 + [0.01]*100 + [0.1]*100 + [1]*100})
+    df_results:pd.DataFrame = pd.DataFrame(data = {'Accuracy': private_results_e0 + private_results_e4 + private_results_e3 + private_results_e2 + private_results_e1 + private_results_einf,
+                                                    'Epsilon': [0.0001]*100 + [0.001]*100 + [0.01]*100 + [0.1]*100 + [1]*100 + [10]*100})
     df_results.to_csv('results/accuracy_results.csv', index=False)
-    palette:object = sns.color_palette(["#E69F00", "#56B4E9", "#009E73", "#F0E442"])
+    palette:object = sns.color_palette("viridis", 6)
 
     #plotting
     plt.figure(figsize=(10, 6))
     sns.boxplot(data=data, showmeans=False, palette=palette)
-    means = [np.mean(private_results_e4), 
+    means = [np.mean(private_results_e0),
+             np.mean(private_results_e4), 
              np.mean(private_results_e3), 
              np.mean(private_results_e2), 
              np.mean(private_results_e1), 
-             np.mean(og_results)]
-    positions = [0, 1, 2, 3, 4]
-    for pos, mean in zip(positions[:-1], means[:-1]):
+             np.mean(private_results_einf)]
+    positions = [0, 1, 2, 3, 4, 5]
+    for pos, mean in zip(positions, means):
         plt.scatter(pos, mean, color='k', s=50, zorder=5)
         plt.text(pos, mean + 0.005, f'{mean:.2f}', fontsize=12, ha='center')
-    plt.scatter(4, means[-1], color='k', s=50, zorder=5)
-    plt.text(4, means[-1] + 0.005, f'{mean:.2f}', fontsize=12, ha='center')
-    plt.plot(positions[:4], means[:4], color='k', linestyle=':', linewidth=1, marker='o', markersize=5, zorder=4)
-    plt.xticks(ticks=[0, 1, 2, 3, 4], labels=[r'$\varepsilon = 0.001$', 
+    #plt.scatter(4, means[-1], color='k', s=50, zorder=5)
+    #plt.text(4, means[-1] + 0.005, f'{mean:.2f}', fontsize=12, ha='center')
+    plt.plot(positions, means, color='k', linestyle=':', linewidth=1, marker='o', markersize=5, zorder=4)
+    plt.xticks(ticks=[0, 1, 2, 3, 4, 5], labels=[r'$\varepsilon = 0.0001$',
+                                              r'$\varepsilon = 0.001$', 
                                               r'$\varepsilon = 0.01$', 
                                               r'$\varepsilon = 0.1$', 
                                               r'$\varepsilon = 1$', 
-                                              'Original'], 
+                                              r'Original ~ $\varepsilon = 10$'], 
                                               fontsize=12)
     plt.ylabel('Accuracy', fontsize=14)
     plt.xlabel('Privacy Models', fontsize=14)
