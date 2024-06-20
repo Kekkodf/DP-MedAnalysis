@@ -115,6 +115,7 @@ if __name__ == '__main__':
 
     # Save and show the plot
     plt.savefig('results/accuracy_comparison.pdf', format='pdf')
+    plt.savefig('results/accuracy_comparison.png', format='png')
     plt.show()
 
     logger.info('Plotting Done Successfully!')

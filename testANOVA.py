@@ -14,6 +14,7 @@ if __name__ == '__main__':
     aov_table = sm.stats.anova_lm(mod, typ=2)
     #save the results
     aov_table.to_csv('./results/aov.csv')
+    print(aov_table)
     #perform multiple pairwise comparison (Tukey HSD)
     mc = MultiComparison(df['Accuracy'], df['Epsilon'])
     result = mc.tukeyhsd()
@@ -23,3 +24,4 @@ if __name__ == '__main__':
     
     #save the plot
     plt.savefig('./results/tukeyhsd.pdf', format='pdf')
+    plt.savefig('./results/tukeyhsd.png', format='png')
