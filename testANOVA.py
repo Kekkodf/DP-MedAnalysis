@@ -9,4 +9,4 @@ if __name__ == '__main__':
     df:pd.DataFrame = pd.read_csv('./results/accuracy_results.csv', sep = ',', header = 0)
     mod = ols('Accuracy ~ Epsilon', data = df).fit()
     aov_table = sm.stats.anova_lm(mod, typ=2)
-    print(aov_table)
+    print(aov_table.to_latex())
