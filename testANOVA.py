@@ -20,7 +20,13 @@ if __name__ == '__main__':
     result = mc.tukeyhsd()
     
     #plot the results
-    fig = result.plot_simultaneous(comparison_name=10, xlabel='Accuracy', ylabel='Privacy Models')
+    ax = plt.subplot(111)
+    fig = result.plot_simultaneous(comparison_name=10, xlabel='Accuracy', ylabel='Privacy Models', ax=ax)
+    ax.set_title('Tukey HSD', size=16)
+    ax.set_xlabel('Accuracy', size=14)
+    ax.set_ylabel('Privacy Models', size=14)
+    ax.tick_params(axis='both', which='major', labelsize=12)
+    plt.tight_layout()
     
     #save the plot
     plt.savefig('./results/tukeyhsd.pdf', format='pdf')

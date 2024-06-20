@@ -111,9 +111,10 @@ if __name__ == '__main__':
                                               fontsize=12)
     plt.ylabel('Accuracy', fontsize=14)
     plt.xlabel('Privacy Models', fontsize=14)
-    #plt.title('Accuracy Comparison')
+    plt.title('Accuracy Comparison of Differential Privacy Models', fontsize=16)
 
     # Save and show the plot
+    plt.tight_layout()
     plt.savefig('results/accuracy_comparison.pdf', format='pdf')
     plt.savefig('results/accuracy_comparison.png', format='png')
     plt.show()
