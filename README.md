@@ -16,6 +16,8 @@ conda 24_DP_MedAnalysis
 ## Project structure
 ### H1 - Pre Summer School Project
 
+`Folder: first presentation`
+
 - Motivate the usefulness of the research presenting the case study;
 - Describe the dataset, including its source, employing suitable plots and tables; 
 - Perform a suitable one-sample tests
@@ -24,9 +26,14 @@ conda 24_DP_MedAnalysis
 
 ### H2 - Post Summer School Project
 
+`Folder: second presentation`
+
 - Linear, non-linear regression model or supervised Machine Learning algorithm
 - Unsupervised Machine Learning algorithm
 - DOE analysis
 
 ## Project description - Differential Privacy and Medical Analysis
 
+`Folder: project`
+
+In the project, we aim to analyze the impact of the application of Differential Privacy (DP) on a medical dataset and perform classifications, clustering and other statistical analysis on the data. In the `project` folder, the slides of the presentations are reported.
