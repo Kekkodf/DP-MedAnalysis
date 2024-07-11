@@ -58,6 +58,7 @@ plt.legend()
 plt.grid(False)
 plt.tight_layout()
 plt.savefig('LinearRegression.pdf', format='pdf')
+plt.savefig('LinearRegression.png', format='png')
 plt.show()
 
 
