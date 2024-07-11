@@ -1,7 +1,7 @@
 # Repository for the Project developed during the PhD Course on "Statistics for Engineers"
 
 ## Contributors
-This repository contains the code to develop the project for the course "Statistics for Engineers" of the PhD in Information Engineering at the University of Padova. The project is developed by Francesco L. De Faveri and Laura Menotti. Both authors contributed equally to the project.
+This repository contains the code to develop the project for the course "Statistics for Engineers" of the PhD in Information Engineering at the University of Padova. The project is developed by Francesco L. De Faveri and Laura Menotti. In addition, the repository also serves as codespace for the experiments of the PhD course "Healthcare Data Management & Analytics" at the University of Padova.
 
 ## Conda environment
 The conda environment named `24_DP_MedAnalysis` is defined in the file `environment.yml` in the `config` folder. To create the environment, run the following command:
