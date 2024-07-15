@@ -3,9 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from typing import List
-from sklearn.preprocessing import StandardScaler  # For scaling dataset
-from sklearn.cluster import KMeans, AgglomerativeClustering, AffinityPropagation #For clustering
-from sklearn.mixture import GaussianMixture
+from sklearn.cluster import KMeans
 sns.set_theme(style="whitegrid")
 sns.set_context("talk")
 sns.set_style("whitegrid")
